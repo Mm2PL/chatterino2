@@ -27,6 +27,6 @@ Arguments:
  - None
 
 Notes:
- - If you want to host the images yourself. You need [Nuuls' filehost software](https://github.com/nuuls/fiehost)
+ - If you want to host the images yourself. You need [Nuuls' filehost software](https://github.com/nuuls/filehost)
  - Other image hosting software is currently not supported.
 
