@@ -43,7 +43,7 @@ StreamSettingsDialog::~StreamSettingsDialog()
 
 void StreamSettingsDialog::updateGameSearch()
 {
-    this->lastUpdateTimer_.start(3s);
+    this->lastUpdateTimer_.start(1s);
 }
 
 void StreamSettingsDialog::reallyUpdateGameSearch()
