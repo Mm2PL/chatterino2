@@ -71,43 +71,16 @@ void StreamSettingsDialog::reallyUpdateGameSearch()
 void StreamSettingsDialog::accept()
 {
     QString gameId;
-    if (this->originalGame_ != this->ui_->gameBox->currentText() &&
-        !this->cachedGame_.has_value())
+    if (this->originalGame_ != this->ui_->gameBox->currentText())
     {
         QString gameName = this->ui_->gameBox->currentText();
         gameId = this->ui_->gameBox->currentData().toString();
         if (gameId.isNull() || gameId.isEmpty())
         {
-            getHelix()->fetchGames(
-                {}, {gameName},
-                [this](std::vector<HelixGame> games) {
-                    qCDebug(chatterinoCommon)
-                        << "Found" << games.size() << "games!";
-                    if (games.size() == 0)
-                    {
-                        this->cachedGame_ = boost::none;
-                        QMessageBox::warning(this, "Failed to look up games.",
-                                             "Game not found.");
-                    }
-                    else
-                    {
-                        this->cachedGame_ = games.at(0);
-                        this->accept();
-                    }
-                },
-                [this]() {
-                    // fail
-                    this->cachedGame_ = boost::none;
-                    QMessageBox::warning(this, "Failed to look up games.",
-                                         "The API returned an error.");
-                });
+            QMessageBox::warning(this, "Failed to look up games.",
+                                 "Game not found.");
         }
         return;
-    }
-
-    if (this->cachedGame_.has_value())
-    {
-        gameId = this->cachedGame_->id;
     }
 
     QString title;
