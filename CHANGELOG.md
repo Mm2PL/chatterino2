@@ -10,6 +10,7 @@
 - Major: Add GUI for /settitle, /setgame (Mm2PL/chatterino#11)
 - Major: Edit stream tags in GUI (Mm2PL/chatterino#12)
 - Major: Add support for Supibot AFKs in user cards (Mm2PL/dankerino#17)
+- Minor: Optionally remove spaces between emotes (Mm2PL/dankerino#53)
 
 ### Chatterino
 
