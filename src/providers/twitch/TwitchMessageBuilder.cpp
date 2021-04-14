@@ -382,6 +382,9 @@ void TwitchMessageBuilder::addWords(
 
             if (currentTwitchEmote.start == cursor)
             {
+                // This emote exists right at the start of the word!
+                this->emplace<EmoteElement>(currentTwitchEmote.ptr,
+                                            MessageElementFlag::TwitchEmote);
                 {
                     auto &prevElem = this->message().elements.back();
                     if (getSettings()->removeSpacesBetweenEmotes &&
@@ -391,9 +394,6 @@ void TwitchMessageBuilder::addWords(
                         prevElem->setTrailingSpace(false);
                     }
                 }
-                // This emote exists right at the start of the word!
-                this->emplace<EmoteElement>(currentTwitchEmote.ptr,
-                                            MessageElementFlag::TwitchEmote);
                 auto len = currentTwitchEmote.name.string.length();
                 cursor += len;
                 word = word.mid(len);
