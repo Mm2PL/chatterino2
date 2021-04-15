@@ -232,12 +232,10 @@ ChannelPtr AbstractIrcServer::getOrAddChannel(const QString &dirtyChannelName)
             {
                 this->readConnection_->sendRaw("PART #" + channelName);
             }
-            //this->readConnection_->sendRaw("PART #" + channelName);
         }
 
         if (this->writeConnection_ && this->hasSeparateWriteConnection())
         {
-            //this->writeConnection_->sendRaw("PART #" + channelName);
             if (channelName.at(0) == "$")
             {
                 this->writeConnection_->sendRaw("PART " + channelName.mid(1));
@@ -266,7 +264,6 @@ ChannelPtr AbstractIrcServer::getOrAddChannel(const QString &dirtyChannelName)
                 {
                     this->readConnection_->sendRaw("JOIN #" + channelName);
                 }
-                //this->readConnection_->sendRaw("JOIN #" + channelName);
             }
         }
 
@@ -274,7 +271,6 @@ ChannelPtr AbstractIrcServer::getOrAddChannel(const QString &dirtyChannelName)
         {
             if (this->readConnection_->isConnected())
             {
-                //this->writeConnection_->sendRaw("JOIN #" + channelName);
                 if (channelName.at(0) == "$")
                 {
                     this->writeConnection_->sendRaw("JOIN " +
