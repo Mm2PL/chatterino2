@@ -123,7 +123,7 @@ public:
                                           -0.5f};
     // BoolSetting useCustomWindowFrame = {"/appearance/useCustomWindowFrame",
     // false};
-    BoolSetting removeSpacesBetweenEmotes = {
+    BoolSetting legacyDankerinoRemoveSpacesBetweenEmotes_ = {
         "/appearance/removeSpacesBetweenEmotes", false};
 
     // Badges
@@ -400,6 +400,7 @@ public:
 
 private:
     void updateModerationActions();
+    void moveLegacyDankerinoSettings_();
 };
 
 }  // namespace chatterino
