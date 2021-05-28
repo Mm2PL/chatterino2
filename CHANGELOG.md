@@ -2,6 +2,12 @@
 
 ## Unversioned
 
+### Dankerino
+
+- Major: Add 7TV emotes from Chatterino7 (Mm2PL/Dankerino#79)
+
+### Chatterino
+
 - Minor: Added moderation buttons to search popup when searching in a split with moderation mode enabled. (#2148, #2803)
 - Minor: Made "#channel" in `/mentions` tab show in usercards and in the search popup. (#2802)
 - Minor: Added settings to disable custom FrankerFaceZ VIP/mod badges. (#2693, #2759)
