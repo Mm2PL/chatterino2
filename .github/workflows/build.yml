@@ -4,7 +4,11 @@ name: Build
 on:
   push:
     branches:
+<<<<<<< HEAD
       - dankerino
+=======
+      - chatterino7
+>>>>>>> 3952aab605f417427b00585441563c792d048909
   pull_request:
 
 jobs:
@@ -224,7 +228,11 @@ jobs:
   create-release:
     needs: build
     runs-on: ubuntu-latest
+<<<<<<< HEAD
     if: (github.event_name == 'push' && github.ref == 'refs/heads/dankerino')
+=======
+    if: (github.event_name == 'push' && github.ref == 'refs/heads/chatterino7')
+>>>>>>> 3952aab605f417427b00585441563c792d048909
 
     steps:
       - name: Create release
