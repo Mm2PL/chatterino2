@@ -11,6 +11,7 @@
 #include "messages/ImageSet.hpp"
 #include "messages/MessageBuilder.hpp"
 #include "providers/twitch/TwitchChannel.hpp"
+#include "singletons/Settings.hpp"
 
 namespace chatterino {
 namespace {
@@ -125,6 +126,12 @@ void SeventvEmotes::loadEmotes()
 {
     // TODO: Network request
     qCDebug(chatterinoSeventv) << "[7TVEmotes] Loading Emotes";
+    if (!getSettings()->enableLoadingSevenTV)
+    {
+        qCDebug(chatterinoSeventv) << "[7TVEmotes] Skipping loading 7tv emotes "
+                                      "because they are not enabled.";
+        return;
+    }
 
     QJsonObject body;
 
@@ -183,6 +190,12 @@ void SeventvEmotes::loadChannel(std::weak_ptr<Channel> channel,
 {
     qCDebug(chatterinoSeventv)
         << "[7TVEmotes] Reload 7TV Channel Emotes for channel" << channelId;
+    if (!getSettings()->enableLoadingSevenTV)
+    {
+        qCDebug(chatterinoSeventv) << "[7TVEmotes] Skipping loading 7tv emotes "
+                                      "because they are not enabled.";
+        return;
+    }
 
     QJsonObject body;
 
