@@ -206,7 +206,6 @@ SOURCES += \
     src/providers/IvrApi.cpp \
     src/providers/LinkResolver.cpp \
     src/providers/seventv/SeventvEmotes.cpp \
-    src/providers/seventv/SeventvWebSocket.cpp \
     src/providers/twitch/ChannelPointReward.cpp \
     src/providers/twitch/api/Helix.cpp \
     src/providers/twitch/api/Kraken.cpp \
