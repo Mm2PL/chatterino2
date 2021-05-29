@@ -49,6 +49,7 @@ void TwitchIrcServer::initialize(Settings &settings, Paths &paths)
         });
     });
 
+    this->seventv.loadEmotes();
     this->bttv.loadEmotes();
     this->ffz.loadEmotes();
 }
@@ -92,7 +93,7 @@ std::shared_ptr<Channel> TwitchIrcServer::createChannel(
     const QString &channelName)
 {
     auto channel = std::shared_ptr<TwitchChannel>(
-        new TwitchChannel(channelName, this->bttv, this->ffz));
+        new TwitchChannel(channelName, this->seventv, this->bttv, this->ffz));
     channel->initialize();
 
     channel->sendMessageSignal.connect(
@@ -408,6 +409,11 @@ void TwitchIrcServer::onMessageSendRequested(TwitchChannel *channel,
         this->sendMessage(channel->getName(), message);
     }
     sent = true;
+}
+
+const SeventvEmotes &TwitchIrcServer::getSeventvEmotes() const
+{
+    return this->seventv;
 }
 
 const BttvEmotes &TwitchIrcServer::getBttvEmotes() const
