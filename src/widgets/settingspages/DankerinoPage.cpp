@@ -65,7 +65,7 @@ void DankerinoPage::initLayout(GeneralPageView &layout)
                            "(requires restart)",
                            s.dankerinoThreeLetterApiEasterEgg);
         layout.addTitle("Random 'hacks'");
-        layout.addCheckbox("Abrnomal nonce detection",
+        layout.addCheckbox("Abnormal nonce detection",
                            s.abnormalNonceDetection);
         layout.addCheckbox(
             "Webchat detection. Adds a little orange asterisk before the "
