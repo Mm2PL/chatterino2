@@ -64,6 +64,7 @@ Application::Application(Settings &_settings, Paths &_paths)
     , twitch2(&this->emplace<TwitchIrcServer>())
     , chatterinoBadges(&this->emplace<ChatterinoBadges>())
     , dankerinoBadges(&this->emplace<DankerinoBadges>())
+    , seventvBadges(&this->emplace<SeventvBadges>())
     , ffzBadges(&this->emplace<FfzBadges>())
     , logging(&this->emplace<Logging>())
 {
