@@ -8,6 +8,7 @@
 #include "messages/ImageSet.hpp"
 #include "messages/MessageBuilder.hpp"
 #include "providers/twitch/TwitchChannel.hpp"
+#include "singletons/Settings.hpp"
 
 #include <QJsonArray>
 #include <QJsonDocument>
@@ -126,6 +127,10 @@ boost::optional<EmotePtr> SeventvEmotes::emote(const EmoteName &name) const
 
 void SeventvEmotes::loadEmotes()
 {
+    if (!getSettings()->enableLoadingSevenTV)
+    {
+        return;
+    }
     qCDebug(chatterinoSeventv) << "Loading 7TV Emotes";
 
     QJsonObject payload, variables;
