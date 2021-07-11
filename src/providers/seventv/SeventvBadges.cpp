@@ -3,6 +3,7 @@
 #include "common/NetworkRequest.hpp"
 #include "common/Outcome.hpp"
 #include "messages/Emote.hpp"
+#include "singletons/Settings.hpp"
 
 #include <QJsonArray>
 #include <QJsonObject>
@@ -35,6 +36,10 @@ boost::optional<EmotePtr> SeventvBadges::getBadge(const UserId &id)
 
 void SeventvBadges::loadSeventvBadges()
 {
+    if (!getSettings()->enableLoadingSevenTV)
+    {
+        return;
+    }
     static QUrl url("https://api.7tv.app/v2/badges");
 
     static QUrlQuery urlQuery;
